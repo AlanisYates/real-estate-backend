@@ -1,0 +1,9 @@
+{
+  "name": "real-estate-backend",
+  "version": "1.0.0",
+  "description": "Backend for real-estate-calc",
+  "main": "server.js",
+  "repository": "https://github.com/AlanisYates/real-estate-backend.git",
+  "author": "<yatesalanis@gmail.com>",
+  "license": "MIT"
+}
