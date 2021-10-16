@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import PropertyRouter from "./src/routes/properties";
 import UserRouter from "./src/routes/users";
+import errorHandler from "./src/error/errorHandler";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/property", PropertyRouter);
 // User Routes
 app.use("/users", UserRouter);
 
+app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}...`);
 });

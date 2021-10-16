@@ -7,8 +7,17 @@ router.get("/", (req, res, next) => {
 });
 
 // get single property
-router.get("/:id", (req, res, next) => {
-  res.send("Get property with id");
+router.get("/:id", async (req, res, next) => {
+  try {
+    if (req.params.id !== "1") {
+      const error = new Error("Missing ID");
+      error.statusCode = 500;
+      throw error;
+    }
+    res.send("Get property with id");
+  } catch (e) {
+    next(e);
+  }
 });
 
 // create property
