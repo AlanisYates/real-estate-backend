@@ -11,7 +11,7 @@ router.get("/:id", async (req, res, next) => {
   try {
     if (req.params.id !== "1") {
       const error = new Error("Missing ID");
-      error.statusCode = 500;
+      error.statusCode = 400;
       throw error;
     }
     res.send("Get property with id");
