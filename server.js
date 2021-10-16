@@ -5,6 +5,7 @@ import "dotenv/config";
 import PropertyRouter from "./src/routes/properties";
 import UserRouter from "./src/routes/users";
 import errorHandler from "./src/error/errorHandler";
+import InitateMongoServer from "./src/config/db.config";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 4000;
 
 // Mongo Db Connection
+InitateMongoServer();
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello World" });
