@@ -1,4 +1,6 @@
 import express from "express";
+import * as Users from "../controllers/users.controller";
+
 const router = express.Router();
 
 // Get all Users
@@ -12,8 +14,16 @@ router.get("/:id", (req, res, next) => {
 });
 
 // create User
-router.post("/", (req, res, next) => {
-  res.send("Create User");
+router.post("/register", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const { username, password, email } = req.body;
+    const createdUser = await Users.createUser(username, email, password);
+
+    res.send(createdUser);
+  } catch (e) {
+    next(e);
+  }
 });
 
 // update User
